@@ -16,8 +16,8 @@ export function calculateProratedAmount(input: ProrationInput): number {
   // any 31-day month it silently undercounts both the daily rate and
   // the number of remaining days — most visible for subscriptions that
   // start late in the month.
-  const dailyRateCents = monthlyRateCents / 30;
-  const remainingDays = 30 - startDay + 1;
+  const dailyRateCents = monthlyRateCents / daysInMonth;
+  const remainingDays = daysInMonth - startDay + 1;
 
   return Math.round(dailyRateCents * remainingDays);
 }
